@@ -2,24 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>CSS界面布局</title>
 </head>
 <body>
+<h1>CSS界面布局</h1>
+<h3>
+    HTML是一种超文本语言，这种语言对于外观从不关心，它只是一种简洁的小型标记机制，而CSS支持更丰富的文档外观，CSS可以为任何元素的文本和背景设置颜色，允许在任何元素外围创建边框及许多其他的效果。
+    </h3>
+<h3>CSS是对HTML的展现。如果HTML是糖心，那CSS是包裹的糖纸。CSS大致可分为四种布局：上下，左右，左中右下，上下右。</h3>
+<h4>1》上下</h4>
+&lt;div&gt;是一个块级元素，换行&lt;div&gt;是固有的唯一格式表现。<br>
+<code>
+    &lt;div style="color: black;background:yellow;width: 400px;height: 50px"&gt;aaaaaaaaaaa&lt;/div&gt;<br>
+    &lt;div style="color: black;background: blue;width: 400px;height: 50px"&gt;bbbbbbbbbbbb&lt;/div&gt;<br>
+</code>
+示意
+<div style="color: black;background:yellow;width: 400px;height: 50px">aaaaaaaaaaa</div>
+<div style="color: black;background: blue;width: 400px;height: 50px">bbbbbbbbbbbb</div>
 
-    <div style="color: black;background:yellow;width: 400px;height: 50px">aaaaaaaaaaa</div>
-    <div style="color: black;background: blue;width: 400px;height: 50px">bbbbbbbbbbbb</div>
-
+<h4>2》左右</h4>
+float的意思是浮动，有float的文本框被称为浮动框，浮动框只能向左和向右浮动。<br>
+<code>
+    &lt;div style="color: black;background:yellow;width: 400px;height: 50px;float: left"&gt;aaaaaaaaaaa&lt;/div&gt;<br>
+    &lt;div style="color: black;background: blue;width: 400px;height: 50px;overflow: hidden"&gt;bbbbbbbbbbbb&lt;/div&gt;<br>
+</code>
+示意<br>
     <div style="color: black;background:yellow;width: 400px;height: 50px;float: left">aaaaaaaaaaa</div>
     <div style="color: black;background: blue;width: 400px;height: 50px;overflow: hidden">bbbbbbbbbbbb</div>
 
 
-    <div style="color: black;background:yellow;width: 400px;height: 50px;float: left">aaaaaaaaaaa</div>
-    <div style="color: black;background: blue;width: 400px;height: 50px;overflow: hidden">bbbbbbbbbbbb</div>
+<h4>3》左中右下</h4>
+float的意思是浮动，有float的文本框被称为浮动框，浮动框只能向左和向右浮动。<br>
+<code>
+    &lt;div style="color: black;background:yellow;width: 400px;height: 50px;float: left"&gt;aaaaaaaaaaa&lt;/div&gt;<br>
+    &lt;div style="color: black;background: blue;height: 50px;overflow: hidden"&gt;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; &lt;div style="color: black;background: red;width: 400px;height: 50px;float: left"&gt;ccccccccccc&lt;/div&gt;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; bbbbbbbb&lt;/div&gt;<br>
+    &lt;div style="color: black;background: green;height: 50px;"&gt;dddddddd&lt;/div&gt;<br>
+</code>
+示意<br>
+<div style="color: black;background:yellow;width: 400px;height: 50px;float: left">aaaaaaaaaaa</div>
+<div style="color: black;background: blue;height: 50px;overflow: hidden">
+    <div style="color: black;background: red;width: 400px;height: 50px;float: left">ccccccccccc</div>
+    bbbbbbbb</div>
+<div style="color: black;background: green;height: 50px;">dddddddd</div>
 
-    <div style="color: black;background:yellow;width: 400px;height: 50px;float: left">aaaaaaaaaaa</div>
-    <div style="color: black;background: blue;height: 50px;overflow: hidden">
-        <div style="color: black;background: red;width: 400px;height: 50px;float: left">ccccccccccc</div>
-        bbbbbbbb</div>
-    <div style="color: black;background: green;height: 50px;">dddddddd</div>
+<h4>4》上下右</h4>
+先把第一个文本框左右分，分出来的第二块再用float左右分，这样就出现左中右。<br>
+<code>
+    &lt;div style="color: black;background:yellow;height: 100px;float: left;width: 400px"&gt;aaaaaaaaaaa&lt;/div&gt;<br>
+    &lt;div style="color: black;background: blue;height: 200px;float: left;clear: both;width: 400px"&gt;bbbbbbbbbbbb&lt;/div&gt;<br>
+    &lt;div style="color: black;background: red;width: 400px;height:300px;overflow: hidden"&gt;ccccccccccc&lt;/div&gt;<br>
+</code>
+示意<br>
+<div style="color: black;background:yellow;height: 100px;float: left;width: 400px">aaaaaaaaaaa</div>
+<div style="color: black;background: blue;height: 200px;float: left;clear: both;width: 400px">bbbbbbbb</div>
+<div style="color: black;background: red;width: 400px;height:300px;overflow: hidden">ccccccccccc</div>
 </body>
 </html>
