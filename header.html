@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+    <!--  rel="stylesheet" 表明关联一个样式表-->
+    <link rel="stylesheet" href="css/theme.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="js/jquery.js"></script>
+    <script src="js/fly.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- 3.3.0 里的购物车是朝左的 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script>
+        $(document).ready(function() {
+            if(document.title=="主页") $("ul li:eq(0)").addClass("active");
+            if(document.title=="商品列表页") $("ul li:eq(1)").addClass("active");
+            var num = document.getElementById("num").value;
+            console.log(num);
+        })
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">    <!-- navbar 导航栏-->
+        <div class="container">                             <!-- container 容器-->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="goodlist.html">Let's Go</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">主页</a>
+                    </li>
+                    <li>
+                        <a href="goodlist.html">商品列表</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right ">
+                    <li>
+                        <a href="#" id="num"><span id='end' class="glyphicon glyphicon-shopping-cart"></span>
+                            购物车 (0)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
