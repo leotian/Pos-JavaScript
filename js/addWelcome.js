@@ -11,6 +11,6 @@ function viewHelper (view) {
 }
 
 $(document).ready(function(){
-    $("#header").load("header.html");
+    $("#header").load("views/header.html");
     $("#view").load("views/home.html");
 });

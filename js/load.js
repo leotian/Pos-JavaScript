@@ -3,7 +3,7 @@ $(document).ready(function(){
         var offset = $("#end").offset();
         $(".btn").click(function(event){
             var btn = $(this);
-            var flight = $('<img class="flight" src="img/gift.png">');
+            var flight = $('<img class="flight" src="../img/gift.png">');
             flight.fly({
                 start: {
                     left: event.pageX,
