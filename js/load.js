@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     $("#header").load("header.html",[],function(){
         var offset = $("#end").offset();
@@ -23,6 +22,7 @@ $(document).ready(function(){
             });
         });
     });
-});/**
+});
+/**
  * Created by tyb on 16-1-25.
  */
