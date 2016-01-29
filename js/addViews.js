@@ -11,12 +11,40 @@ function viewHelper (view) {
 }
 
 $(document).ready(function(){
-    $("#header").load("views/header.html");
-    $("#view").load("views/home.html");
+    $("#header").load("views/header.html",[],function(){
+        $("#view").load("views/home.html");
+        $("ul li:eq(0)").addClass("active");
+
+        $("#list").click(
+            function(){
+                loadViews('list');
+            }
+        );
+        $("#home").click(
+            function(){
+                loadViews('home');
+            }
+        )
+    });
 });
 
+function loadViews(view){
+    if (view=='list') loadList();
+    if (view=='home') loadHome()
+}
 
-$(document).ready(function() {
-    if(document.title=="主页") $("ul li:eq(0)").addClass("active");
-    if(document.title=="商品列表页") $("ul li:eq(1)").addClass("active");
-})
+function loadList(){
+    $("#view").load("views/goodlist.html",[],function(){
+        document.title='商品列表页';
+        $("ul li:eq(1)").addClass("active");
+        $("ul li:eq(0)").removeClass("active");
+    });
+}
+
+function loadHome(){
+    $("#view").load("views/home.html",[],function(){
+        document.title='主页';
+        $("ul li:eq(0)").addClass("active");
+        $("ul li:eq(1)").removeClass("active");
+    });
+}
