@@ -18,7 +18,7 @@ $(document).ready(function(){
 
 function loadViews(view){
     if (view=='list') loadList();
-    if (view=='home') loadHome()
+    if (view=='home') loadHome();
 }
 
 function loadList(){
@@ -27,6 +27,11 @@ function loadList(){
         $("ul li:eq(1)").addClass("active");
         $("ul li:eq(0)").removeClass("active");
         addButtonClick();
+        var count = 0;
+        $('.btn-primary').click(function(){
+            count++;
+            $('#cart-count').text(count);
+        });
     });
 
 }
@@ -62,3 +67,4 @@ function addButtonClick(){
         });
     });
 }
+
