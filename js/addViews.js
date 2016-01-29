@@ -13,19 +13,25 @@ $(document).ready(function(){
                 loadViews('home');
             }
         )
+
+        $("#cart").click(function(){
+                loadViews('cart');
+            }
+        )
     });
 });
 
 function loadViews(view){
     if (view=='list') loadList();
     if (view=='home') loadHome();
+    if (view=='cart') loadCart();
 }
 
 function loadList(){
     $("#view").load("views/goodlist.html",[],function(){
         document.title='商品列表页';
+        $("ul li").removeClass("active");
         $("ul li:eq(1)").addClass("active");
-        $("ul li:eq(0)").removeClass("active");
         addButtonClick();
         var count = 0;
         $('.btn-primary').click(function(){
@@ -39,9 +45,17 @@ function loadList(){
 function loadHome(){
     $("#view").load("views/home.html",[],function(){
         document.title='主页';
+        $("ul li").removeClass("active");
         $("ul li:eq(0)").addClass("active");
-        $("ul li:eq(1)").removeClass("active");
     });
+}
+
+function loadCart(){
+    $("#view").load("views/cart.html",[],function(){
+        document.title='购物车';
+        $("ul li").removeClass("active");
+        $("ul li:eq(2)").addClass("active");
+    })
 }
 
 function addButtonClick(){
