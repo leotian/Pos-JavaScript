@@ -4,7 +4,6 @@
 $(document).ready(function(){
     $("#header").load("views/header.html",[],function(){
         loadViews('home');
-
         $("#list").click(function(){
                 loadViews('list');
             }
@@ -13,7 +12,6 @@ $(document).ready(function(){
                 loadViews('home');
             }
         )
-
         $("#cart").click(function(){
                 loadViews('cart');
             }
@@ -22,31 +20,34 @@ $(document).ready(function(){
 });
 
 function loadViews(view){
-    if (view=='list') loadList();
-    if (view=='home') loadHome();
-    if (view=='cart') loadCart();
+    if (view == 'list') loadList();
+    if (view == 'home') loadHome();
+    if (view == 'cart') loadCart();
+    if (view == 'payment') loadPayment();
 }
 
 function loadList(){
     $("#view").load("views/goodlist.html",[],function(){
-        document.title='商品列表页';
+        document.title='商品列表';
         $("ul li").removeClass("active");
         $("ul li:eq(1)").addClass("active");
-        addButtonClick();
+        addGiftFly();
         var count = 0;
         $('.btn-primary').click(function(){
             count++;
             $('#cart-count').text(count);
         });
     });
-
 }
 
 function loadHome(){
     $("#view").load("views/home.html",[],function(){
-        document.title='主页';
+        document.title='欢迎光临';
         $("ul li").removeClass("active");
         $("ul li:eq(0)").addClass("active");
+        $(".btn-primary").click(function(){
+            loadViews('list');
+        })
     });
 }
 
@@ -55,10 +56,20 @@ function loadCart(){
         document.title='购物车';
         $("ul li").removeClass("active");
         $("ul li:eq(2)").addClass("active");
+        $(".btn-primary").click(function(){
+            loadViews('payment');
+        })
     })
 }
 
-function addButtonClick(){
+function loadPayment(){
+    $("#view").load("views/payment.html",[],function(){
+        document.title='付款页';
+        $("ul li").removeClass("active");
+    })
+}
+
+function addGiftFly(){
     var offset = $("#end").offset();
     $(".btn").click(function(event){
         var btn = $(this);
@@ -82,3 +93,7 @@ function addButtonClick(){
     });
 }
 
+function getActive(num){
+    $("ul li").removeClass("active");
+    $("ul li:eq(num)").addClass("active"),{num:num};
+}
