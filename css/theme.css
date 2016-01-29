@@ -5,6 +5,7 @@ body {
 
 a {
     font-weight: bold;
+    cursor:pointer;
 }
 
 .theme-dropdown .dropdown-menu {
