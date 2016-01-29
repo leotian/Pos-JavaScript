@@ -12,16 +12,13 @@ function viewHelper (view) {
 
 $(document).ready(function(){
     $("#header").load("views/header.html",[],function(){
-        $("#view").load("views/home.html");
-        $("ul li:eq(0)").addClass("active");
+        loadViews('home');
 
-        $("#list").click(
-            function(){
+        $("#list").click(function(){
                 loadViews('list');
             }
         );
-        $("#home").click(
-            function(){
+        $("#home").click(function(){
                 loadViews('home');
             }
         )
