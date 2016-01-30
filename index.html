@@ -10,11 +10,44 @@
 </head>
 
 <body role="document">
-    <div id="header"></div>
-    <div id="view"></div>
+<nav class="navbar navbar-inverse navbar-fixed-top">    <!-- navbar 导航栏-->
+    <div class="container">                             <!-- container 容器-->
+        <div class="navbar-header">
+            <a class="navbar-brand" data-view="home">Let's Go</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">主页</a></li>
+                <li><a href="views/goodlist.html">商品列表</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right ">
+                <li>
+                    <a href="views/cart.html">
+                        <span id='end' class="glyphicon glyphicon-shopping-cart"></span>购物车(<span id="cart-count">0</span>)
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container theme-showcase" role="main">
+    <div class="jumbotron">
+        <h1 class="text-left"><Strong>Welcome to Let's Go</Strong></h1>
+        <p>商店里进行购物结算时会使用收银机 (POS) 系统，这台收银机会在结算时根据 客户的购物车 (Cart) 中的商品 (Item) 和商店正在进行的优惠活动
+            (Promotion) 进行结算和打印购物清单。已知该商店正在对部分商品进行“买二赠一”的优惠活动。我们需要实现一个名为printInventory函数，
+            该函数能够将指定格式的数据作为参数 输入，然后在浏览器的控制台中输出结算清单的文本。
+        </p>
+        <button class="btn btn-lg btn-primary" type="button"><Strong>Let's Go</Strong></button>
+    </div>
+</div>
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/addViews.js"></script>
     <script type="text/javascript" src="js/fly.js"></script>
+
+    <script src="js/models/item.js"></script>
+    <script src="js/fixtures.js"></script>
+    <script src="js/addViews.js"></script>
 </body>
 </html>

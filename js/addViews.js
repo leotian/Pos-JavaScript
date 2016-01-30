@@ -26,11 +26,21 @@ function loadViews(view){
     if (view == 'payment') loadPayment();
 }
 
+
+function loadHome(){
+    $("#view").load("views/home.html",[],function(){
+        document.title='欢迎光临';
+        getActive(0);
+        $(".btn-primary").click(function(){
+            loadViews('list');
+        })
+    });
+}
+
 function loadList(){
     $("#view").load("views/goodlist.html",[],function(){
         document.title='商品列表';
-        $("ul li").removeClass("active");
-        $("ul li:eq(1)").addClass("active");
+        getActive(1);
         addGiftFly();
         var count = 0;
         $('.btn-primary').click(function(){
@@ -40,22 +50,10 @@ function loadList(){
     });
 }
 
-function loadHome(){
-    $("#view").load("views/home.html",[],function(){
-        document.title='欢迎光临';
-        $("ul li").removeClass("active");
-        $("ul li:eq(0)").addClass("active");
-        $(".btn-primary").click(function(){
-            loadViews('list');
-        })
-    });
-}
-
 function loadCart(){
     $("#view").load("views/cart.html",[],function(){
         document.title='购物车';
-        $("ul li").removeClass("active");
-        $("ul li:eq(2)").addClass("active");
+        getActive(2);
         $(".btn-primary").click(function(){
             loadViews('payment');
         })
@@ -65,8 +63,16 @@ function loadCart(){
 function loadPayment(){
     $("#view").load("views/payment.html",[],function(){
         document.title='付款页';
-        $("ul li").removeClass("active");
+        removeActive();
     })
+}
+
+function getActive(num){
+    removeActive();
+    $("ul li:eq("+num+")").addClass("active");
+}
+function removeActive(){
+    $("ul li").removeClass("active");
 }
 
 function addGiftFly(){
@@ -93,7 +99,16 @@ function addGiftFly(){
     });
 }
 
-function getActive(num){
-    $("ul li").removeClass("active");
-    $("ul li:eq(num)").addClass("active"),{num:num};
+function addToTable(){
+    var Items = loadAllItems();
+    var itemDom = $(itemLine);
+    Items.forEach(function(item){
+        var $tr = $("<tr></tr>");
+        var $th = $("<th></th>");
+        $th.append(item.name);
+        $th.appendTo($tr);
+        $tr.appendTo($('#item-table'));
+    })
 }
+
+
