@@ -1,6 +1,7 @@
 /**
  * Created by tyb on 16-1-28.
  */
+
 $(document).ready(function(){
     $("#header").load("views/header.html",[],function(){
         loadViews('home');
@@ -25,7 +26,6 @@ function loadViews(view){
     if (view == 'cart') loadCart();
     if (view == 'payment') loadPayment();
 }
-
 
 function loadHome(){
     $("#view").load("views/home.html",[],function(){
