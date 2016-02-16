@@ -9,10 +9,11 @@ $(document).ready(function(){
 
 function listController(){
     var items = loadAllItems();
-    items.forEach(function(item){
+    items.forEach(function (item) {
         var rowItem = itemRowHelper(item);
         $(".table").append(rowItem);
     });
+    listListener();
 }
 
 function listListener () {
@@ -22,6 +23,11 @@ function listListener () {
         item.addCount();
         cartCountInitiate();
     });
+}
+
+function cartCountInitiate () {
+    var count = Order.getCartCount();
+    $('#cart-count').text(count);
 }
 
 function itemRowHelper(item){
