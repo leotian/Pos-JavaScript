@@ -14,13 +14,13 @@ function listController(){
         $(".table").append(rowItem);
     });
     listListener();
+    cartCountInitiate();
 }
 
 function listListener () {
     $('.list-item').on('click', 'button', function () {
         var itemName = $(this).closest('.list-item').find('.item-name').text();
         var item = Order.findByName(itemName);
-        console.log(item);
         item.addCount();
         cartCountInitiate();
     });
