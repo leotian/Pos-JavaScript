@@ -7,7 +7,7 @@ $(document).ready(function(){
 })
 
 function cartInitiate () {
-    cartCountInitiate();
+    cartCountUpdate();
     addTable();
     addCartListener();
 }
@@ -19,7 +19,7 @@ function addTable () {
         var cartItem = cartItemHelper(item);
         $('#cart-table').append(cartItem);
     });
-    sumPriceInitiate ();
+    sumPriceUpdate();
 }
 
 function addCartListener () {
@@ -34,17 +34,17 @@ function addCartListener () {
         }
         $(this).closest('.btn-group').find('.number').text(item.count);
         $(this).closest('.cart-item').find('.item-sum').text(sumPriceHelper(item));
-        cartCountInitiate();
-        sumPriceInitiate();
+        cartCountUpdate();
+        sumPriceUpdate();
     })
 }
 
-function sumPriceInitiate () {
+function sumPriceUpdate () {
     $('#cart-fare').text(Order.fare().toFixed(2));
     $('#cart-saving').text(Order.saving().toFixed(2));
 }
 
-function cartCountInitiate () {
+function cartCountUpdate () {
     var count = Order.getCartCount();
     $('#cart-count').text(count);
 }

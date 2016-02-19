@@ -7,7 +7,7 @@ $(document).ready(function(){
 })
 
 function listInitiate(){
-    cartCountInitiate();
+    cartCountUpdate();
     addTable();
     addListListener();
     addGiftFly();
@@ -26,11 +26,11 @@ function addListListener () {
         var itemName = $(this).closest('.list-item').find('.item-name').text();
         var item = Order.findByName(itemName);
         item.addCount();
-        cartCountInitiate();
+        cartCountUpdate();
     });
 }
 
-function cartCountInitiate () {
+function cartCountUpdate () {
     var count = Order.getCartCount();
     $('#cart-count').text(count);
 }

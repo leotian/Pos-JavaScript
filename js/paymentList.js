@@ -7,13 +7,13 @@ $(document).ready(function(){
 })
 
 function paymentInitiate () {
-    cartCountInitiate();
+    cartCountUpdate();
     addTable();
-    sumPriceInitiate();
+    sumPriceUpdate();
     addPaymentListener();
 }
 
-function sumPriceInitiate () {
+function sumPriceUpdate () {
     $('#cart-fare').text(Order.fare().toFixed(2));
     $('#cart-saving').text(Order.saving().toFixed(2));
 }
@@ -57,7 +57,7 @@ function sumPriceHelper (item) {
     return item.fare() + '元' + extra;
 }
 
-function cartCountInitiate () {
+function cartCountUpdate () {
     var count = Order.getCartCount();
     $('#cart-count').text(count);
 }
