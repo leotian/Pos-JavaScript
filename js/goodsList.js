@@ -3,21 +3,25 @@
  */
 
 $(document).ready(function(){
-    listController();
-    addGiftFly();
+    listInitiate();
 })
 
-function listController(){
+function listInitiate(){
+    cartCountInitiate();
+    addTable();
+    addListListener();
+    addGiftFly();
+}
+
+function addTable(){
     var items = loadAllItems();
     items.forEach(function (item) {
         var rowItem = itemRowHelper(item);
         $(".table").append(rowItem);
     });
-    listListener();
-    cartCountInitiate();
 }
 
-function listListener () {
+function addListListener () {
     $('.list-item').on('click', 'button', function () {
         var itemName = $(this).closest('.list-item').find('.item-name').text();
         var item = Order.findByName(itemName);

@@ -3,10 +3,22 @@
  */
 
 $(document).ready(function(){
-    paymentController();
+    paymentInitiate();
 })
 
-function paymentController () {
+function paymentInitiate () {
+    cartCountInitiate();
+    addTable();
+    sumPriceInitiate();
+    addPaymentListener();
+}
+
+function sumPriceInitiate () {
+    $('#cart-fare').text(Order.fare().toFixed(2));
+    $('#cart-saving').text(Order.saving().toFixed(2));
+}
+
+function addTable () {
     var cartItems = Order.all();
     _(cartItems).each(function (item) {
         var boughtItem = boutghtItemHelper(item);
@@ -20,13 +32,9 @@ function paymentController () {
         $('#free-table').append(freeItem);
     });
     $('#dateTime').text(moment().format('YYYY年MM月DD日 HH:mm:ss'));
-    $('#cart-fare').text(Order.fare().toFixed(2));
-    $('#cart-saving').text(Order.saving().toFixed(2));
-    paymentListener();
-    cartCountInitiate();
 }
 
-function paymentListener () {
+function addPaymentListener () {
     $('#confirm').on('click', function () {
         Order.clear();
     })
