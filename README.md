@@ -1,4 +1,4 @@
 # POS
 
-POS的纯JS实现
+POS的纯JS实现，单页面程序
 
